@@ -1,8 +1,8 @@
 # scheduled-sop-runner for Claude Code
 
-[![License: MIT](https://img.shields.io/github/license/Zavelinski/scheduled-sop-runner)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/Zavelinski/scheduled-sop-runner?style=flat)](https://github.com/Zavelinski/scheduled-sop-runner/stargazers)
-[![Last commit](https://img.shields.io/github/last-commit/Zavelinski/scheduled-sop-runner)](https://github.com/Zavelinski/scheduled-sop-runner/commits)
+[![License: MIT](https://img.shields.io/github/license/Zavelinski/claude-code-scheduled-sop-runner)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Zavelinski/claude-code-scheduled-sop-runner?style=flat)](https://github.com/Zavelinski/claude-code-scheduled-sop-runner/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/Zavelinski/claude-code-scheduled-sop-runner)](https://github.com/Zavelinski/claude-code-scheduled-sop-runner/commits)
 [![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-8A2BE2)](https://claude.com/claude-code)
 
 A [Claude Code](https://claude.com/claude-code) skill that turns a repeatable task or SOP into a **quiet, self-checking scheduled routine**. It runs on a cadence, checks whether the run actually succeeded, and **only pings you when something fails** or a success condition is not met. No news is good news.
@@ -26,7 +26,7 @@ Platform schedulers (`/schedule`, `/loop`, cron, scheduled-tasks) run things on 
 ## Install
 
 ```bash
-git clone https://github.com/Zavelinski/scheduled-sop-runner.git
+git clone https://github.com/Zavelinski/claude-code-scheduled-sop-runner.git
 cd scheduled-sop-runner
 ```
 
@@ -70,3 +70,14 @@ bash uninstall.sh      # macOS / Linux
 ## License
 
 MIT. See [LICENSE](LICENSE). Original work.
+
+---
+
+## Install as a Claude Code plugin
+
+```bash
+/plugin marketplace add Zavelinski/claude-code-skills
+/plugin install scheduled-sop-runner@claude-code-skills
+```
+
+Part of the **[claude-code-skills](https://github.com/Zavelinski/claude-code-skills)** collection: a suite of focused, original Claude Code skills.
