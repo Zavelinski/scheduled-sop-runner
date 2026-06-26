@@ -7,6 +7,46 @@
 
 A [Claude Code](https://claude.com/claude-code) skill that turns a repeatable task or SOP into a **quiet, self-checking scheduled routine**. It runs on a cadence, checks whether the run actually succeeded, and **only pings you when something fails** or a success condition is not met. No news is good news.
 
+## Prerequisites
+
+Claude Code with `/plugin` support (v2.x+) and a shell if you use the manual fallback.
+
+## Install
+
+### Option 1 — Claude Code plugin marketplace (recommended)
+
+```bash
+/plugin marketplace add Zavelinski/claude-code-skills
+/plugin install scheduled-sop-runner@claude-code-skills
+```
+
+Registered hooks (if any) install through the Claude Code consent UI, with no manual edit to `~/.claude/settings.json`.
+
+### Option 2 — Manual fallback (run it yourself)
+
+> **Security note.** This script mutates `~/.claude/settings.json` directly. Claude Code auto-mode blocks it because a third-party `UserPromptSubmit` hook that injects text into every prompt is a known risk vector. The script is benign and local-only (no network), but you must review and run it yourself. Prefer Option 1.
+
+```bash
+git clone https://github.com/Zavelinski/claude-code-scheduled-sop-runner.git
+cd claude-code-scheduled-sop-runner
+bash install.sh        # macOS / Linux
+.\install.ps1          # Windows (PowerShell)
+```
+
+## Uninstall
+
+```bash
+/plugin uninstall scheduled-sop-runner@claude-code-skills    # Option 1
+bash uninstall.sh                                # Option 2 (or uninstall.ps1 on Windows)
+```
+
+## Update
+
+```bash
+/plugin marketplace update claude-code-skills    # Option 1
+# Option 2: pull the latest commit and re-run the manual fallback.
+```
+
 ## Why it exists
 
 Platform schedulers (`/schedule`, `/loop`, cron, scheduled-tasks) run things on a timer — but on their own they do not define what *success* means for a run, and they happily notify you on every run. This skill adds the missing layer:
@@ -22,25 +62,6 @@ Platform schedulers (`/schedule`, `/loop`, cron, scheduled-tasks) run things on 
 3. **Pick the best available scheduler** in your environment (cloud Routines / `/schedule`, `/loop`, a cron MCP, or `CronCreate`) and says which it used.
 4. **Wire quiet-unless-needed** — evaluates `success_when` after each run; stays silent on success, notifies with the failing check + log tail on failure.
 5. **Recovery-first** — anything sensitive or hard to reverse is *proposed for approval*, never auto-run.
-
-## Install
-
-```bash
-git clone https://github.com/Zavelinski/claude-code-scheduled-sop-runner.git
-cd scheduled-sop-runner
-```
-
-**macOS / Linux**
-```bash
-bash install.sh
-```
-
-**Windows (PowerShell)**
-```powershell
-.\install.ps1
-```
-
-Skill-only install (no hooks, no `settings.json` changes) — it copies one folder into `~/.claude/skills/`. Restart Claude Code, then ask to **schedule a SOP** (or `/scheduled-sop-runner`).
 
 ## Example
 
@@ -58,26 +79,8 @@ retain: 30
 ```
 Then it wires it to your scheduler and goes quiet — you only hear from it the morning a backup didn't verify.
 
-## Uninstall
-
-```bash
-bash uninstall.sh      # macOS / Linux
-```
-```powershell
-.\uninstall.ps1        # Windows
-```
-
 ## License
 
 MIT. See [LICENSE](LICENSE). Original work.
-
----
-
-## Install as a Claude Code plugin
-
-```bash
-/plugin marketplace add Zavelinski/claude-code-skills
-/plugin install scheduled-sop-runner@claude-code-skills
-```
 
 Part of the **[claude-code-skills](https://github.com/Zavelinski/claude-code-skills)** collection: a suite of focused, original Claude Code skills.
