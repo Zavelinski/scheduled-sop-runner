@@ -83,4 +83,8 @@ Then it wires it to your scheduler and goes quiet — you only hear from it the 
 
 MIT. See [LICENSE](LICENSE). Original work.
 
-Part of the **[claude-code-skills](https://github.com/Zavelinski/claude-code-skills)** collection: a suite of focused, original Claude Code skills.
+---
+
+## Part of claude-code-skills
+
+This skill ships in the [claude-code-skills](https://zavelinski.github.io/claude-code-skills/) marketplace. Browse its landing page: [scheduled-sop-runner](https://zavelinski.github.io/claude-code-skills/scheduled-sop-runner.html). See also: [salve](https://github.com/Zavelinski/claude-code-salve), [docs-drift-sync](https://github.com/Zavelinski/claude-code-docs-drift-sync).
