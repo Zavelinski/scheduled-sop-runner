@@ -1,5 +1,10 @@
 # scheduled-sop-runner for Claude Code
 
+[![License: MIT](https://img.shields.io/github/license/Zavelinski/scheduled-sop-runner)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Zavelinski/scheduled-sop-runner?style=flat)](https://github.com/Zavelinski/scheduled-sop-runner/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/Zavelinski/scheduled-sop-runner)](https://github.com/Zavelinski/scheduled-sop-runner/commits)
+[![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-8A2BE2)](https://claude.com/claude-code)
+
 A [Claude Code](https://claude.com/claude-code) skill that turns a repeatable task or SOP into a **quiet, self-checking scheduled routine**. It runs on a cadence, checks whether the run actually succeeded, and **only pings you when something fails** or a success condition is not met. No news is good news.
 
 ## Why it exists
